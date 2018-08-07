@@ -9,14 +9,22 @@ BAD_DOMAINS = ['intercom-mail.com', 'mailchimp.com', 'tradedefender.com',
                'digitalocean.com', 'linkedin.com', 'twitter.com', 'aclu.org',
                'intuit.com', 'hootsuite.com', 'luc.edu', 'freshbooks.com',
                'tweepi.com', 'zendesk.com', 'ovh.net', 'uber.com', 'hubspot.com',
-               'nytimes.com', 'slack.com', 'eventbrite.com', 'envato.com',
+               'nytimes.com', 'slack.com', 'eventbrite.com', 'whoisguard', 'envato.com',
                '.edu', 'trello.com', 'ifttt.com', 'gofundme.com', 'bankofamerica.com',
                'sedo.com', 'anewstip.com', 'nbcuni.com', 'clubhouse.io', 'foursquare.com',
-               'upcounsel.io', '.gov', 'mailgun.net', 'cmtassociation.org']
+               'upcounsel.io', '.gov', 'mailgun.net', 'cmtassociation.org', 'quandl.com',
+               'saleforce.com', 'zapier.com', 'zamzar.com', 'appfolio', 'jive.com',
+               'newsletter', 'drunkshopping.com', 'saveup.com', 'docusign',
+               'cityofchicago.org', 'duespayment', 'zumper', 'gmail.com', 'yahoo.com',
+               'aol.com', 'insightly.com', 'trademarkia.com', 'spglobal.com', 
+               'icloud.com', 'me.com', 'hotmail.com']
 
 BAD_PREFIXES = ['info', 'information', 'support', 'sales', 'help',
                'noreply', 'donotreply', 'team', 'hello', 'hq', 'robot',
                'newsletter', 'admin', 'hi', 'connect', 'no-reply', 'replies',
-               'reply', 'daemon', 'welcome', 'news']
+               'reply', 'daemon', 'welcome', 'news', 'success', 'submissions',
+               'tips', 'alerts', 'approvals', 'webinar', 'announce', 'pepboys',
+               'pharmacy', 'feedback', 'invite', 'notification', 'media', 'webmaster',
+               'online', 'partners', 'offers']
 
 BAD_CHARS = ['\r', '\n', '\t', '\'', '\"']

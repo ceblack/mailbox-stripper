@@ -1,11 +1,13 @@
 import sys
 import mailbox
 import env
+import time
 
 RAW_EMAILS = []
 FINISHED_EMAILS = []
 
 MSG_COUNT = 0
+START = time.time()
 
 BAD_CHARS = env.BAD_CHARS
 BAD_PREFIXES = env.BAD_PREFIXES
@@ -16,7 +18,11 @@ def readMbox(mboxPath):
     mbox = mailbox.mbox(mboxPath)
 
     for msg in mbox:
-        stripEmails(msg)
+        try:
+            stripEmails(msg)
+
+        except Exception as e:
+            print(str(e))
 
     RAW_EMAILS = list(set(RAW_EMAILS))
 
@@ -82,7 +88,7 @@ def removeBadElements():
         if goodResult:
             count += 1
             print(addr, count)
-            #pass
+            writeRecord(name, addr)
 
 def removeChars(x):
     for char in BAD_CHARS:
@@ -111,10 +117,21 @@ def removeErrantSpaces(x):
     else:
         return('')
 
+def writeRecord(name, addr):
+    outString = name + '|' + addr + '\n'
+    f = open(str(int(START)) + '.csv', 'a')
+    f.write(outString)
+    f.close()
+
 def execute(mboxPath):
     readMbox(mboxPath)
 
     removeBadElements()
+
+    runTime = time.time() - START
+    avgTime = round(MSG_COUNT / runTime, 4)
+
+    print('PROCESSED ' + str(MSG_COUNT) + ' RECORDS IN ' + str(avgTime) + ' SECONDS')
 
 if __name__ == '__main__':
     execute(sys.argv[1])
